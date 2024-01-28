@@ -4,7 +4,7 @@ a=10
 Dim b
 b=50
 
-'no concat & opp used
+'no     concat & opp used
 MsgBox("Before Swap")
 MsgBox(" A ="&a)
 
