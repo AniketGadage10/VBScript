@@ -12,4 +12,22 @@ Dest="C:\Vrushali\Testing\"
 
 Src="C:\Vrushali\Result.txt"
 
-File_Obj.MoveFile Src,Dest
+
+If File_Obj.FileExists(Src) Then
+
+	IF File_Obj.FileExists(Dest) Then
+		File_Obj.MoveFile Src,Dest
+	Else
+		MsgBox " File With Path "&Dest&" Not Exists"
+	End IF
+Else
+	MsgBox " File With Path "&Src&" Not Exists"
+End If
+
+
+Set File_Obj=Nothing
+
+
+
+
+

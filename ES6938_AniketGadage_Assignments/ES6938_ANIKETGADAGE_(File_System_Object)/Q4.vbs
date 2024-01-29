@@ -16,14 +16,28 @@ Src="C:\Vrushali\Testing\MyFirstTextFile.txt"
 
 Dest="C:\Vrushali\Result.txt"
 
-File_Obj.CreateTextFile Dest
+If File_Obj.FileExists(Src) Then
 
-Set Read_Obj=File_Obj.OpenTextFile(Src,ForRead)
+	IF Not(File_Obj.FileExists(Dest)) Then
+		File_Obj.CreateTextFile Dest
+	End IF
+	
+		Set Read_Obj=File_Obj.OpenTextFile(Src,ForRead)
 
-Set Write_Obj=File_Obj.OpenTextFile(Dest,ForWrite)
+		Set Write_Obj=File_Obj.OpenTextFile(Dest,ForWrite)
 
 
-Do Until Read_Obj.AtEndOfStream
-	str=Read_Obj.ReadLine()
-	Write_Obj.WriteLine(str)
-Loop
+		Do Until Read_Obj.AtEndOfStream
+				str=Read_Obj.ReadLine()
+				Write_Obj.WriteLine(str)
+		Loop
+Else
+	MsgBox " File With Path "&Src&" Not Exists"
+End If
+
+set Write_Obj=Nothing
+Set File_Obj=Nothing
+Set Read_Obj=Nothing
+
+
+
