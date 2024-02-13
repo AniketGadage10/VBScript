@@ -1,5 +1,5 @@
 s=INPUTBOX(" Enter The Alphabate")
-
+CH=Mid(s,1,1)
 IF Mid(s,1,1)="A" OR Mid(s,1,1)="a" THEN
 	WScript.echo " Alphabate "&CH&" Is a Vowel "
 else
